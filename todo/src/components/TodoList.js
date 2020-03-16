@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import { reducer, initialState } from '../reducers/reducer';
-import Todo from './Todo'
+import Todo from './Todo';
+import TodoForm from './TodoForm';
 
 function TodoList() {
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -10,11 +11,11 @@ function TodoList() {
            {state.map(todo => {
                return (
                <Todo
-                    item={todo.item}
-                    completed={todo.completed}
-                    id={todo.id}
+                    todo = {todo}
+                    dispatch={dispatch}
                 />)
             })}
+            <TodoForm dispatch={dispatch}/>
         </div>
     )
 }
